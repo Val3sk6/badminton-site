@@ -257,3 +257,113 @@
   .player-section {
     margin-top: 10px;
   }
+
+  .detail-hero {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    padding: 70px 20px;
+  }
+  
+  .detail-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .detail-tag {
+    display: inline-block;
+    background-color: #1f3c88;
+    color: white;
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  
+  .detail-hero h2 {
+    font-size: 40px;
+    color: #1f3c88;
+    margin-bottom: 14px;
+  }
+  
+  .detail-hero p {
+    max-width: 760px;
+    font-size: 18px;
+    color: #475569;
+  }
+  
+  .detail-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  
+  .detail-video-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+  }
+  
+  .detail-video-box video {
+    width: 100%;
+    border-radius: 14px;
+    background-color: black;
+  }
+  
+  .detail-card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+  }
+  
+  .detail-card h3 {
+    color: #1f3c88;
+    margin-bottom: 12px;
+    font-size: 22px;
+  }
+  
+  .detail-card p {
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  
+  .detail-card ul {
+    padding-left: 20px;
+    color: #475569;
+  }
+  
+  .detail-card li {
+    margin-bottom: 10px;
+  }
+  
+  .back-button {
+    display: inline-block;
+    background-color: #1f3c88;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  
+  .back-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 900px) {
+    .detail-layout {
+      grid-template-columns: 1fr;
+    }
+  
+    .detail-hero h2 {
+      font-size: 30px;
+    }
+  
+    .detail-hero p {
+      font-size: 16px;
+    }
+  }
