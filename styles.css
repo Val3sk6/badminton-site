@@ -30,6 +30,16 @@
     gap: 20px;
   }
   
+  .site-title {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .site-title:hover {
+    opacity: 0.9;
+  }
+
   header h1 {
     font-size: 26px;
   }
