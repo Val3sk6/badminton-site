@@ -377,3 +377,30 @@
       font-size: 16px;
     }
   }
+
+  .lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  
+  .lesson-link {
+    display: inline-block;
+    background-color: #1f3c88;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  
+  .lesson-link:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+  }
+  
+  .secondary-link {
+    background-color: #475569;
+  }
