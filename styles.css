@@ -475,3 +475,195 @@
   .detail-card p:last-child {
     margin-bottom: 0;
   }
+
+  .enhanced-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 20px 90px;
+    background:
+      radial-gradient(circle at top right, rgba(255,255,255,0.8), transparent 30%),
+      linear-gradient(135deg, #dbeafe 0%, #eff6ff 55%, #f8fbff 100%);
+  }
+  
+  .hero-badge {
+    display: inline-block;
+    background-color: rgba(31, 60, 136, 0.12);
+    color: #1f3c88;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .secondary-hero-button {
+    background-color: white;
+    color: #1f3c88;
+    border: 1px solid rgba(31, 60, 136, 0.18);
+  }
+  
+  .hero-stats {
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 18px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-stat-card {
+    background-color: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 18px 16px;
+    box-shadow: 0 8px 24px rgba(31, 60, 136, 0.08);
+  }
+  
+  .hero-stat-card strong {
+    display: block;
+    font-size: 26px;
+    color: #1f3c88;
+    margin-bottom: 6px;
+  }
+  
+  .hero-stat-card span {
+    color: #475569;
+    font-size: 14px;
+  }
+  
+  .section-head {
+    margin-bottom: 28px;
+  }
+  
+  .section-kicker {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 10px;
+  }
+  
+  .section-head h2 {
+    font-size: 32px;
+    color: #1f3c88;
+    margin-bottom: 12px;
+  }
+  
+  .section-head p {
+    max-width: 760px;
+    color: #475569;
+  }
+  
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+  }
+  
+  .roadmap-card {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px 22px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+  
+  .roadmap-step {
+    display: inline-block;
+    font-size: 13px;
+    color: #1f3c88;
+    background-color: #dbeafe;
+    padding: 5px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  
+  .roadmap-card h3 {
+    font-size: 22px;
+    color: #1f3c88;
+    margin-bottom: 10px;
+  }
+  
+  .roadmap-card p {
+    color: #475569;
+  }
+  
+  .category-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+  }
+  
+  .video-grid {
+    align-items: stretch;
+  }
+  
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .course-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .course-content p {
+    flex-grow: 1;
+  }
+  
+  .course-button {
+    margin-top: auto;
+  }
+  
+  .enhanced-about-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  
+  .about-column {
+    background-color: #f8fbff;
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+  
+  .about-column h3 {
+    color: #1f3c88;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .about-column p {
+    color: #475569;
+  }
+  
+  @media (max-width: 768px) {
+    .enhanced-hero {
+      padding: 78px 20px 70px;
+    }
+  
+    .hero-stats {
+      grid-template-columns: 1fr;
+    }
+  
+    .section-head h2 {
+      font-size: 28px;
+    }
+  }
