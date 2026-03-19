@@ -467,3 +467,11 @@
     color: #475569;
     margin: 0;
   }
+
+  .detail-card strong {
+    color: #1f3c88;
+  }
+  
+  .detail-card p:last-child {
+    margin-bottom: 0;
+  }
