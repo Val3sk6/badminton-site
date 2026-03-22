@@ -58,7 +58,7 @@
   
     <div class="video-grid">
       <div class="course-card">
-        <img src="images/serve-cover.jpg" alt="正手发高远球教学封面">
+        <img src="images/serve-cover.jpg" alt="正手发高远球教学封面" class="secret-trigger" data-secret-order="1">
         <div class="course-content">
           <span class="course-tag">发球教学</span>
           <h3>正手发高远球教学</h3>
@@ -75,7 +75,7 @@
       </div>
   
       <div class="course-card">
-        <img src="images/clear-cover.jpg" alt="后场高远球练习封面">
+        <img src="images/clear-cover.jpg" alt="后场高远球练习封面" class="secret-trigger" data-secret-order="2">
         <div class="course-content">
           <span class="course-tag">高远球教学</span>
           <h3>后场高远球练习</h3>
@@ -92,7 +92,7 @@
       </div>
   
       <div class="course-card">
-        <img src="images/smash-cover.jpg" alt="杀球与步伐衔接封面">
+        <img src="images/smash-cover.jpg" alt="杀球与步伐衔接封面" class="secret-trigger" data-secret-order="3">
         <div class="course-content">
           <span class="course-tag">杀球教学</span>
           <h3>杀球与步伐衔接</h3>
@@ -109,7 +109,7 @@
       </div>
 
       <div class="course-card">
-        <img src="images/netshot-cover.jpg" alt="网前搓球与扑球封面">
+        <img src="images/netshot-cover.jpg" alt="网前搓球与扑球封面" class="secret-trigger" data-secret-order="4">
         <div class="course-content">
           <span class="course-tag">网前教学</span>
           <h3>网前搓球与扑球</h3>
@@ -126,7 +126,7 @@
       </div>
       
       <div class="course-card">
-        <img src="images/footwork-cover.jpg" alt="步伐基础与回位训练封面">
+        <img src="images/footwork-cover.jpg" alt="步伐基础与回位训练封面" class="secret-trigger" data-secret-order="5">
         <div class="course-content">
           <span class="course-tag">步伐训练</span>
           <h3>步伐基础与回位训练</h3>
@@ -157,24 +157,154 @@
     <p>© 2026 马哥的羽毛球教学网站 | 技术学习展示页</p>
     <button id="backToTop" class="back-to-top" aria-label="返回顶部">↑</button>
   </footer>
-
+  
+  <div id="secretPromptModal" class="secret-modal">
+    <div class="secret-modal-content prompt-modal-content">
+      <button id="closePromptModal" class="secret-close-btn" aria-label="关闭">×</button>
+      <span class="secret-badge">隐藏彩蛋</span>
+      <h2>芝麻开门？</h2>
+      <div class="secret-input-wrap">
+        <input id="secretPasswordInput" type="text" placeholder="请输入口令">
+        <button id="submitSecretPassword" class="secret-submit-btn">确定</button>
+      </div>
+      <p id="secretErrorText" class="secret-error-text"></p>
+    </div>
+  </div>
+  
+  <div id="secretEssayModal" class="secret-modal">
+    <div class="secret-modal-content">
+      <button id="closeSecretEssayModal" class="secret-close-btn" aria-label="关闭">×</button>
+      <span class="secret-badge">隐藏彩蛋</span>
+      <h2>写给马哥真爱粉</h2>
+      <div class="secret-text">
+        <p>
+          马哥之于羽球，不止在挥拍起落之间，更在一次次奔跑与回位里，慢慢把热爱打磨成了习惯。
+          他未必总是最耀眼的那一个，却总能在球落下来之前，再往前追一步；总能在旁人觉得该算了的时候，
+          还愿意为一个动作、一种节奏、一次更好的击球去反复琢磨。
+        </p>
+        <p>
+          有些人打球，是为了热闹；有些人打球，是为了胜负。而马哥像是在球场上安放了某种更固执也更温柔的东西。
+          那是一种很难说清的认真，是即使汗水落进眼里，也不愿随便敷衍一拍的倔强；
+          是明明知道成长很慢，却依然愿意一球一球去靠近更好的自己。
+        </p>
+        <p>
+          若说球拍、步伐、击球声响都是表面，那真正动人的，大概是他始终没有放下的心气。
+          正因为如此，关于马哥的故事，从来不只是羽毛球本身，
+          而是一个人如何在热爱里，悄悄长成了更值得被喜欢的模样。
+        </p>
+      </div>
+    </div>
+  </div>
+  
   <script>
     const backToTopButton = document.getElementById("backToTop");
   
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTopButton.classList.add("show");
-      } else {
-        backToTopButton.classList.remove("show");
+    if (backToTopButton) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
+      });
+  
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  
+    const secretTriggers = document.querySelectorAll(".secret-trigger");
+    const secretPromptModal = document.getElementById("secretPromptModal");
+    const secretEssayModal = document.getElementById("secretEssayModal");
+    const closePromptModal = document.getElementById("closePromptModal");
+    const closeSecretEssayModal = document.getElementById("closeSecretEssayModal");
+    const secretPasswordInput = document.getElementById("secretPasswordInput");
+    const submitSecretPassword = document.getElementById("submitSecretPassword");
+    const secretErrorText = document.getElementById("secretErrorText");
+  
+    const correctOrder = ["1", "2", "3", "4", "5"];
+    let clickedOrder = [];
+  
+    function resetSecretProgress() {
+      clickedOrder = [];
+    }
+  
+    secretTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const currentOrder = trigger.dataset.secretOrder;
+        const expectedOrder = correctOrder[clickedOrder.length];
+  
+        if (currentOrder === expectedOrder) {
+          clickedOrder.push(currentOrder);
+  
+          if (clickedOrder.length === correctOrder.length) {
+            secretPromptModal.classList.add("show");
+            secretPasswordInput.value = "";
+            secretErrorText.textContent = "";
+            secretPasswordInput.focus();
+          }
+        } else {
+          resetSecretProgress();
+        }
+      });
+    });
+  
+    function closePrompt() {
+      secretPromptModal.classList.remove("show");
+      secretErrorText.textContent = "";
+      secretPasswordInput.value = "";
+      resetSecretProgress();
+    }
+  
+    function closeEssay() {
+      secretEssayModal.classList.remove("show");
+    }
+  
+    closePromptModal.addEventListener("click", closePrompt);
+    closeSecretEssayModal.addEventListener("click", closeEssay);
+  
+    secretPromptModal.addEventListener("click", (e) => {
+      if (e.target === secretPromptModal) {
+        closePrompt();
       }
     });
   
-    backToTopButton.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+    secretEssayModal.addEventListener("click", (e) => {
+      if (e.target === secretEssayModal) {
+        closeEssay();
+      }
+    });
+  
+    function verifySecretPassword() {
+      const value = secretPasswordInput.value.trim();
+  
+      if (value === "爱马仕") {
+        secretPromptModal.classList.remove("show");
+        secretEssayModal.classList.add("show");
+        secretErrorText.textContent = "";
+        resetSecretProgress();
+      } else {
+        secretErrorText.textContent = "闹麻了，你也配看马哥小甜文？";
+      }
+    }
+  
+    submitSecretPassword.addEventListener("click", verifySecretPassword);
+  
+    secretPasswordInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        verifySecretPassword();
+      }
+    });
+  
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closePrompt();
+        closeEssay();
+      }
     });
   </script>
-</body>
-</html>
+  </body>
+  </html>
